@@ -13,11 +13,14 @@ export class StudentsController {
     @Get()
     findAll(){ return this.studentsService.findAll()}
 
+
+    //Get a user from id
     @Get(':id')
     findOne(@Param('id', ParseIntPipe) id: number){
         return this.studentsService.findOne(id)
     }
 
+    //Create a new user   
     @Post()
     newStudent(@Body() dto: CreateStudentDto){
         return this.studentsService.create(dto)
